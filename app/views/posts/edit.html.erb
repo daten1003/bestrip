@@ -1,0 +1,25 @@
+<h2>Bestripを編集</h2>
+<div id="error-explanation">
+  <% if @post.errors.any? %>
+    <h3><%= @post.errors.count %>errors prohibited this obj from being saved:</h3>
+    <ul>
+    <% @post.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+　  <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<%=form_with model:@post do |f| %>
+  <label for="post_title">タイトル</label>
+  <%= f.text_field :title, class:'form-control post_title' %>
+　<label for="post_title">画像</label>
+　<%= f.file_field :image, class:'form-control post_image' %>
+  <label for="post_image">説明</label>
+  <%= f.text_area :body, class:'form-control book_body' %>
+
+  <%= f.submit 'Update',class:'btn btn-success my-3' %>
+<% end %>
+<%=link_to "Show", post_path(@post.id) %>
+|
+<%=link_to "Back", posts_path %>

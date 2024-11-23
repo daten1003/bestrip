@@ -1,0 +1,14 @@
+<h2>このBestripについて</h2>
+<%= link_to posts_path do %>
+  <%= @post.title %>
+<% end %>
+<%=image_tag @post.image, size:'100x100' %>
+<%=@post.body %>
+<h4>投稿者</h4>
+<%=@post.user.name %>
+<% if @post.user == current_user %>
+  <%= link_to "Edit" , edit_post_path, class:'btn btn-sm btn-success'%>
+  <%= link_to "Destroy" , post_path , method: :delete, data: {confirm: "本当に削除しますか?"}, class:'btn btn-sm btn-danger' %>
+<% end %>
+
+

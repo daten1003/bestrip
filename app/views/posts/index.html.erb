@@ -1,0 +1,8 @@
+<h2>みんなのBestrip</h2>
+  <% @posts.each do |post| %>
+    <%=link_to post_path(post.id) do %>
+      <%=post.title %>
+    <% end %>
+    <%=image_tag post.image, size:'100x100' %>
+    <%=post.body %>
+  <% end %>
